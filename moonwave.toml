@@ -23,11 +23,3 @@ includeReadme = false
 [[home.features]]
 title = "Improved Performance"
 description = "Performance has been improved around 25% over the original source."
-
-[[home.features]]
-title = "Promise Support"
-description = "Janitor supports adding Promises to it natively, which will then cancel if the Janitor is cleaned up. This makes Janitor the only library of its kind with support for this implementation of Promises."
-
-[[home.features]]
-title = "Instances linking"
-description = "Janitor's LinkToInstance method allows you to cleanup the Janitor when a linked Instance is destroyed. This allows you to execute behavior on destruction as well as cleanup objects quickly."
