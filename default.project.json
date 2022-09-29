@@ -1,0 +1,11 @@
+{
+	"name": "fast-rotated-region3",
+	"tree": {
+		"$className": "DataModel",
+
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"FastRotatedRegion3": {"$path": "src"}
+		}
+	}
+}

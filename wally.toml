@@ -1,0 +1,15 @@
+[package]
+name = "howmanysmall/fast-rotated-region3"
+description = "A faster version of EgoMoose's RotatedRegion3 module."
+version = "1.0.0"
+license = "MIT"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+exclude = [
+	"docs", ".moonwave", "test",
+	"changelog.md", "README.md", ".styluaignore", ".gitignore",
+	"aftman.toml", "moonwave.toml", "selene.toml", "stylua.toml", "testez-companion.toml",
+	"sourcemap.json", "tsconfig.json", "package.json", "package-lock.json", ".eslintrc", ".prettierrc"
+]
+
+[dependencies]
