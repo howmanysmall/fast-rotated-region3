@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[236],{7636:e=>{e.exports=JSON.parse('[{"type":"link","href":"/api/RotatedRegion3","label":"\u200bRotated\u200bRegion3"}]')}}]);

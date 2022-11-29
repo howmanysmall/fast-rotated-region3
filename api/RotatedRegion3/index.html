@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.1">
+<title data-rh="true">RotatedRegion3 | FastRotatedRegion3</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://howmanysmall.github.io/fast-rotated-region3/api/RotatedRegion3"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="RotatedRegion3 | FastRotatedRegion3"><link data-rh="true" rel="canonical" href="https://howmanysmall.github.io/fast-rotated-region3/api/RotatedRegion3"><link data-rh="true" rel="alternate" href="https://howmanysmall.github.io/fast-rotated-region3/api/RotatedRegion3" hreflang="en"><link data-rh="true" rel="alternate" href="https://howmanysmall.github.io/fast-rotated-region3/api/RotatedRegion3" hreflang="x-default"><link rel="stylesheet" href="/fast-rotated-region3/assets/css/styles.396b872c.css">
+<link rel="preload" href="/fast-rotated-region3/assets/js/runtime~main.acafa907.js" as="script">
+<link rel="preload" href="/fast-rotated-region3/assets/js/main.77d0272c.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region"><a href="#" class="skipToContent_fXgn">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/fast-rotated-region3/"><b class="navbar__title text--truncate">FastRotatedRegion3</b></a><a class="navbar__item navbar__link" href="/fast-rotated-region3/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/fast-rotated-region3/api/">API</a><a class="navbar__item navbar__link" href="/fast-rotated-region3/changelog">Changelog</a></div><div class="navbar__items navbar__items--right"><a href="https://discord.gg/nhDpg96Srt" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://discord.gg/luau" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Luau Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/howmanysmall/fast-rotated-region3" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/fast-rotated-region3/api/RotatedRegion3">​Rotated​Region3</a></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">Rotated</span><span style="display:inline-block">Region3</span></h1><div class="luaClassTags_EipM"></div><div></div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="types">Types<a class="hash-link" href="#types" title="Direct link to heading">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ShapeType"><code style="text-decoration:none">ShapeType</code><a class="hash-link" href="#ShapeType" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L92"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">type</code> <code>ShapeType<!-- --> = </code> <code class="blue_P4bS">&quot;Ball&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;Block&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;CornerWedge&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;Cylinder&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;Wedge&quot;</code></div><div>
+<p>The RotatedRegion3's shape.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="SupportFunction"><code style="text-decoration:none">SupportFunction</code><a class="hash-link" href="#SupportFunction" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L98"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">type</code> <code>SupportFunction<!-- --> = </code> <code class="purple_ieR2">(</code><div class="inset_uKQm"><code>Set<!-- -->: </code><code class="green_DgR4">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="green_DgR4">}</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code>Direction<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div><div>
+<p>A support function.</p>
+</div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a class="hash-link" href="#properties" title="Direct link to heading">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CFrame"><code style="text-decoration:none">CFrame</code><a class="hash-link" href="#CFrame" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L104"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.<!-- -->CFrame<!-- -->:<!-- --> </code> <code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/CFrame" target="_blank" rel="noopener noreferrer">CFrame<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div><div>
+<p>A CFrame that represents the center of the region.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Size"><code style="text-decoration:none">Size</code><a class="hash-link" href="#Size" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L110"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.<!-- -->Size<!-- -->:<!-- --> </code> <code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div><div>
+<p>A Vector3 that represents the size of the region.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Shape"><code style="text-decoration:none">Shape</code><a class="hash-link" href="#Shape" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L116"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.<!-- -->Shape<!-- -->:<!-- --> </code> <code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/fast-rotated-region3/api/RotatedRegion3#ShapeType">ShapeType</a></code></div><div>
+<p>A string that represents the shape type of the RotatedRegion3 object.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Set"><code style="text-decoration:none">Set</code><a class="hash-link" href="#Set" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L122"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.<!-- -->Set<!-- -->:<!-- --> </code> <code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code></div><div>
+<p>An array of Vector3s that are passed to the support function.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Support"><code style="text-decoration:none">Support</code><a class="hash-link" href="#Support" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L128"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.<!-- -->Support<!-- -->:<!-- --> </code> <code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/fast-rotated-region3/api/RotatedRegion3#SupportFunction">SupportFunction</a></code></div><div>
+<p>A function that is used for support in the GJK algorithm.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Centroid"><code style="text-decoration:none">Centroid</code><a class="hash-link" href="#Centroid" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L134"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.<!-- -->Centroid<!-- -->:<!-- --> </code> <code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div><div>
+<p>A Vector3 that represents the center of the set, again used for the GJK algorithm.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="AlignedRegion3"><code style="text-decoration:none">AlignedRegion3</code><a class="hash-link" href="#AlignedRegion3" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L140"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.<!-- -->AlignedRegion3<!-- -->:<!-- --> </code> <code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Region3" target="_blank" rel="noopener noreferrer">Region3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div><div>
+<p>A standard Region3 that represents the world bounding box of the RotatedRegion3 object.</p>
+</div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a class="hash-link" href="#functions" title="Direct link to heading">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="new"><code style="text-decoration:none">new</code><a class="hash-link" href="#new" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L175"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.</code><code class="green_DgR4">new</code><code>(</code><div class="inset_uKQm"><div><code>CoordinateFrame<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/CFrame" target="_blank" rel="noopener noreferrer">CFrame<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The center of the region.</p>
+</span></span></div><div><code>Size<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The size of the region.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/fast-rotated-region3/api/RotatedRegion3">RotatedRegion3</a></code></div><div>
+<p>
+  Creates a region from a CFrame which acts as the center of the region and size
+  which extends to the corners like a block part.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Block"><code style="text-decoration:none">Block</code><a class="hash-link" href="#Block" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L206"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.</code><code class="green_DgR4">Block</code><code>(</code><div class="inset_uKQm"><div><code>CoordinateFrame<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/CFrame" target="_blank" rel="noopener noreferrer">CFrame<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The center of the region.</p>
+</span></span></div><div><code>Size<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The size of the region.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/fast-rotated-region3/api/RotatedRegion3">RotatedRegion3</a></code></div><div>
+<p>
+  Creates a region from a CFrame which acts as the center of the region and size
+  which extends to the corners like a block part.
+</p>
+<div class="admonition admonition-info alert alert--info">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+        </svg></span>info</h5>
+  </div>
+  <div class="admonition-content">
+    <p>This is the exact same as the <a href="/fast-rotated-region3/api/RotatedRegion3#new"><code>RotatedRegion3.new</code></a> constructor.</p>
+  </div>
+</div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Wedge"><code style="text-decoration:none">Wedge</code><a class="hash-link" href="#Wedge" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L233"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.</code><code class="green_DgR4">Wedge</code><code>(</code><div class="inset_uKQm"><div><code>CoordinateFrame<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/CFrame" target="_blank" rel="noopener noreferrer">CFrame<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The center of the region.</p>
+</span></span></div><div><code>Size<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The size of the region.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/fast-rotated-region3/api/RotatedRegion3">RotatedRegion3</a></code></div><div>
+<p>
+  Creates a region from a CFrame which acts as the center of the region and size
+  which extends to the corners like a <a href="https://developer.roblox.com/en-us/api-reference/class/WedgePart" target="_blank">WedgePart</a>.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CornerWedge"><code style="text-decoration:none">CornerWedge</code><a class="hash-link" href="#CornerWedge" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L260"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.</code><code class="green_DgR4">CornerWedge</code><code>(</code><div class="inset_uKQm"><div><code>CoordinateFrame<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/CFrame" target="_blank" rel="noopener noreferrer">CFrame<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The center of the region.</p>
+</span></span></div><div><code>Size<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The size of the region.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/fast-rotated-region3/api/RotatedRegion3">RotatedRegion3</a></code></div><div>
+<p>
+  Creates a region from a CFrame which acts as the center of the region and size
+  which extends to the corners like a <a href="https://developer.roblox.com/en-us/api-reference/class/CornerWedgePart" target="_blank">CornerWedgePart</a>.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Cylinder"><code style="text-decoration:none">Cylinder</code><a class="hash-link" href="#Cylinder" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L286"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.</code><code class="green_DgR4">Cylinder</code><code>(</code><div class="inset_uKQm"><div><code>CoordinateFrame<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/CFrame" target="_blank" rel="noopener noreferrer">CFrame<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The center of the region.</p>
+</span></span></div><div><code>Size<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The size of the region.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/fast-rotated-region3/api/RotatedRegion3">RotatedRegion3</a></code></div><div>
+<p>
+  Creates a region from a CFrame which acts as the center of the region and size
+  which extends to the corners like a cylinder part.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Ball"><code style="text-decoration:none">Ball</code><a class="hash-link" href="#Ball" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L313"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.</code><code class="green_DgR4">Ball</code><code>(</code><div class="inset_uKQm"><div><code>CoordinateFrame<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/CFrame" target="_blank" rel="noopener noreferrer">CFrame<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The center of the region.</p>
+</span></span></div><div><code>Size<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The size of the region.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/fast-rotated-region3/api/RotatedRegion3">RotatedRegion3</a></code></div><div>
+<p>
+  Creates a region from a CFrame which acts as the center of the region and size
+  which extends to the corners like a ball part.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="FromPart"><code style="text-decoration:none">FromPart</code><a class="hash-link" href="#FromPart" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L338"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->.</code><code class="green_DgR4">FromPart</code><code>(</code><div class="inset_uKQm"><div><code>BasePart<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The part to create the region from.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/fast-rotated-region3/api/RotatedRegion3">RotatedRegion3</a></code></div><div>
+<p>
+  Creates a region from a part in the game. It can be used on any base part, but the region
+  will treat unknown shapes (meshes, unions, etc) as block shapes.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CastPoint"><code style="text-decoration:none">CastPoint</code><a class="hash-link" href="#CastPoint" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L349"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">CastPoint</code><code>(</code><div class="inset_uKQm"><div><code>Point<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The point to cast.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true or false if the point is within the RotatedRegion3 object.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CastPart"><code style="text-decoration:none">CastPart</code><a class="hash-link" href="#CastPart" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L358"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">CastPart</code><code>(</code><div class="inset_uKQm"><div><code>BasePart<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The BasePart to cast.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Returns true or false if the part is within the RotatedRegion3 object.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="FindPartsInRegion3"><code style="text-decoration:none">FindPartsInRegion3</code><a class="hash-link" href="#FindPartsInRegion3" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L378"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">FindPartsInRegion3</code><code>(</code><div class="inset_uKQm"><div><code>IgnoreDescendantsInstance<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance?<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The instance to ignore descendants of.</p>
+</span></span></div><div><code>MaxParts<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The maximum number of parts to return. Defaults to 20.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns array of parts in the RotatedRegion3 object. Will return
+  a maximum number of parts in the array. Parts that either are are
+  descendants of or are the <code>IgnoreDescendantsInstance</code> will be ignored.
+</p>
+<div class="admonition admonition-info alert alert--info">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+        </svg></span>info</h5>
+  </div>
+  <div class="admonition-content">
+    <p>
+      You should instead use <a href="/fast-rotated-region3/api/RotatedRegion3#GetPartsInRegion">RotatedRegion3.GetPartsInRegion</a> instead.
+      It's slower but it's using a newer API.
+    </p>
+  </div>
+</div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="FindPartsInRegion3WithIgnoreList"><code style="text-decoration:none">FindPartsInRegion3WithIgnoreList</code><a class="hash-link" href="#FindPartsInRegion3WithIgnoreList" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L412"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">FindPartsInRegion3WithIgnoreList</code><code>(</code><div class="inset_uKQm"><div><code>IgnoreList<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code><code class="blue_P4bS">?</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The instances to ignore.</p>
+</span></span></div><div><code>MaxParts<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The maximum number of parts to return. Defaults to 20.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns array of parts in the RotatedRegion3 object. Will return
+  a maximum number of parts in the array. Parts that either are descendants
+  of the IgnoreList or are actually in the IgnoreList will be ignored.
+</p>
+<div class="admonition admonition-info alert alert--info">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+        </svg></span>info</h5>
+  </div>
+  <div class="admonition-content">
+    <p>
+      You should instead use <a href="/fast-rotated-region3/api/RotatedRegion3#GetPartsInRegionWithIgnoreList">RotatedRegion3.GetPartsInRegionWithIgnoreList</a> instead.
+      It's slower but it's using a newer API.
+    </p>
+  </div>
+</div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="FindPartsInRegion3WithWhiteList"><code style="text-decoration:none">FindPartsInRegion3WithWhiteList</code><a class="hash-link" href="#FindPartsInRegion3WithWhiteList" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L447"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">FindPartsInRegion3WithWhiteList</code><code>(</code><div class="inset_uKQm"><div><code>Whitelist<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code><code class="blue_P4bS">?</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The instances to allow.</p>
+</span></span></div><div><code>MaxParts<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The maximum number of parts to return. Defaults to 20.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns array of parts in the RotatedRegion3 object. Will return
+  a maximum number of parts in the array. Parts that are not either descendants
+  of the Whitelist or are actually in the Whitelist will be ignored.
+</p>
+<div class="admonition admonition-info alert alert--info">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+        </svg></span>info</h5>
+  </div>
+  <div class="admonition-content">
+    <p>
+      You should instead use <a href="/fast-rotated-region3/api/RotatedRegion3#GetPartsInRegionWithWhitelist">RotatedRegion3.GetPartsInRegionWithWhitelist</a> instead.
+      It's slower but it's using a newer API.
+    </p>
+  </div>
+</div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="GetPartsInRegion"><code style="text-decoration:none">GetPartsInRegion</code><a class="hash-link" href="#GetPartsInRegion" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L479"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">GetPartsInRegion</code><code>(</code><div class="inset_uKQm"><div><code>IgnoreDescendantsInstance<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance?<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The instance to ignore descendants of.</p>
+</span></span></div><div><code>MaxParts<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The maximum number of parts to return. Defaults to 20.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns array of parts in the RotatedRegion3 object. Will return
+  a maximum number of parts in the array. Parts that either are are
+  descendants of or are the <code>IgnoreDescendantsInstance</code> will be ignored.
+</p>
+<p>Uses <a href="https://developer.roblox.com/en-us/api-reference/class/Workspace#GetPartBoundsInBox" target="_blank">Workspace.GetPartBoundsInBox</a> instead of <a href="https://developer.roblox.com/en-us/api-reference/class/Workspace#FindPartsInRegion3" target="_blank">Workspace.FindPartsInRegion3</a>.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="GetPartsInRegionWithIgnoreList"><code style="text-decoration:none">GetPartsInRegionWithIgnoreList</code><a class="hash-link" href="#GetPartsInRegionWithIgnoreList" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L521"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">GetPartsInRegionWithIgnoreList</code><code>(</code><div class="inset_uKQm"><div><code>IgnoreList<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code><code class="blue_P4bS">?</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The instances to ignore.</p>
+</span></span></div><div><code>MaxParts<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The maximum number of parts to return. Defaults to 20.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns array of parts in the RotatedRegion3 object. Will return
+  a maximum number of parts in the array. Parts that either are descendants
+  of the IgnoreList or are actually in the IgnoreList will be ignored.
+</p>
+<p>Uses <a href="https://developer.roblox.com/en-us/api-reference/class/Workspace#GetPartBoundsInBox" target="_blank">Workspace.GetPartBoundsInBox</a> instead of <a href="https://developer.roblox.com/en-us/api-reference/class/Workspace#FindPartsInRegion3" target="_blank">Workspace.FindPartsInRegion3</a>.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="GetPartsInRegionWithWhiteList"><code style="text-decoration:none">GetPartsInRegionWithWhiteList</code><a class="hash-link" href="#GetPartsInRegionWithWhiteList" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L558"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">GetPartsInRegionWithWhiteList</code><code>(</code><div class="inset_uKQm"><div><code>Whitelist<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code><code class="blue_P4bS">?</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The instances to allow.</p>
+</span></span></div><div><code>MaxParts<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The maximum number of parts to return. Defaults to 20.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Returns array of parts in the RotatedRegion3 object. Will return
+  a maximum number of parts in the array. Parts that are not either descendants
+  of the Whitelist or are actually in the Whitelist will be ignored.
+</p>
+<p>Uses <a href="https://developer.roblox.com/en-us/api-reference/class/Workspace#GetPartBoundsInBox" target="_blank">Workspace.GetPartBoundsInBox</a> instead of <a href="https://developer.roblox.com/en-us/api-reference/class/Workspace#FindPartsInRegion3" target="_blank">Workspace.FindPartsInRegion3</a>.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Cast"><code style="text-decoration:none">Cast</code><a class="hash-link" href="#Cast" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L597"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">Cast</code><code>(</code><div class="inset_uKQm"><div><code>IgnoreList<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="op_lSLc"> | </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The instance(s) to ignore.</p>
+</span></span></div><div><code>MaxParts<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The maximum number of parts to return. Defaults to 20.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Same as the <a href="/fast-rotated-region3/api/RotatedRegion3#FindPartsInRegion3WithIgnoreList">RotatedRegion3.FindPartsInRegion3WithIgnoreList</a>
+  method, but will check if the ignore argument is an array or single instance.
+</p>
+<div class="admonition admonition-info alert alert--info">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+        </svg></span>info</h5>
+  </div>
+  <div class="admonition-content">
+    <p>
+      You should instead use <a href="/fast-rotated-region3/api/RotatedRegion3#Cast">RotatedRegion3.Cast</a> instead.
+      It's slower but it's using a newer API.
+    </p>
+  </div>
+</div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="CastInBox"><code style="text-decoration:none">CastInBox</code><a class="hash-link" href="#CastInBox" title="Direct link to heading">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/howmanysmall/fast-rotated-region3/blob/main/src/init.lua#L610"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>RotatedRegion3<!-- -->:</code><code class="green_DgR4">CastInBox</code><code>(</code><div class="inset_uKQm"><div><code>IgnoreList<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="op_lSLc"> | </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The instance(s) to ignore.</p>
+</span></span></div><div><code>MaxParts<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The maximum number of parts to return. Defaults to 20.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Same as the <a href="/fast-rotated-region3/api/RotatedRegion3#GetPartsInRegionWithIgnoreList">RotatedRegion3.GetPartsInRegionWithIgnoreList</a>
+  method, but will check if the ignore argument is an array or single instance.
+</p>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;new&quot;,
+            &quot;desc&quot;: &quot;Creates a region from a CFrame which acts as the center of the region and size\nwhich extends to the corners like a block part.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;CoordinateFrame&quot;,
+                    &quot;desc&quot;: &quot;The center of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;CFrame&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Size&quot;,
+                    &quot;desc&quot;: &quot;The size of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector3&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;RotatedRegion3&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 175,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Block&quot;,
+            &quot;desc&quot;: &quot;Creates a region from a CFrame which acts as the center of the region and size\nwhich extends to the corners like a block part.\n\n:::info\nThis is the exact same as the [`RotatedRegion3.new`](/api/RotatedRegion3#new) constructor.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;CoordinateFrame&quot;,
+                    &quot;desc&quot;: &quot;The center of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;CFrame&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Size&quot;,
+                    &quot;desc&quot;: &quot;The size of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector3&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;RotatedRegion3&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 206,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Wedge&quot;,
+            &quot;desc&quot;: &quot;Creates a region from a CFrame which acts as the center of the region and size\nwhich extends to the corners like a [WedgePart].&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;CoordinateFrame&quot;,
+                    &quot;desc&quot;: &quot;The center of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;CFrame&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Size&quot;,
+                    &quot;desc&quot;: &quot;The size of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector3&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;RotatedRegion3&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 233,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;CornerWedge&quot;,
+            &quot;desc&quot;: &quot;Creates a region from a CFrame which acts as the center of the region and size\nwhich extends to the corners like a [CornerWedgePart].&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;CoordinateFrame&quot;,
+                    &quot;desc&quot;: &quot;The center of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;CFrame&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Size&quot;,
+                    &quot;desc&quot;: &quot;The size of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector3&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;RotatedRegion3&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 260,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Cylinder&quot;,
+            &quot;desc&quot;: &quot;Creates a region from a CFrame which acts as the center of the region and size\nwhich extends to the corners like a cylinder part.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;CoordinateFrame&quot;,
+                    &quot;desc&quot;: &quot;The center of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;CFrame&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Size&quot;,
+                    &quot;desc&quot;: &quot;The size of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector3&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;RotatedRegion3&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 286,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Ball&quot;,
+            &quot;desc&quot;: &quot;Creates a region from a CFrame which acts as the center of the region and size\nwhich extends to the corners like a ball part.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;CoordinateFrame&quot;,
+                    &quot;desc&quot;: &quot;The center of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;CFrame&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;Size&quot;,
+                    &quot;desc&quot;: &quot;The size of the region.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector3&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;RotatedRegion3&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 313,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;FromPart&quot;,
+            &quot;desc&quot;: &quot;Creates a region from a part in the game. It can be used on any base part, but the region\nwill treat unknown shapes (meshes, unions, etc) as block shapes.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;BasePart&quot;,
+                    &quot;desc&quot;: &quot;The part to create the region from.&quot;,
+                    &quot;lua_type&quot;: &quot;BasePart&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;RotatedRegion3&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 338,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;CastPoint&quot;,
+            &quot;desc&quot;: &quot;Returns true or false if the point is within the RotatedRegion3 object.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;Point&quot;,
+                    &quot;desc&quot;: &quot;The point to cast.&quot;,
+                    &quot;lua_type&quot;: &quot;Vector3&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 349,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;CastPart&quot;,
+            &quot;desc&quot;: &quot;Returns true or false if the part is within the RotatedRegion3 object.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;BasePart&quot;,
+                    &quot;desc&quot;: &quot;The BasePart to cast.&quot;,
+                    &quot;lua_type&quot;: &quot;BasePart&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 358,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;FindPartsInRegion3&quot;,
+            &quot;desc&quot;: &quot;Returns array of parts in the RotatedRegion3 object. Will return\na maximum number of parts in the array. Parts that either are are\ndescendants of or are the `IgnoreDescendantsInstance` will be ignored.\n\n:::info\nYou should instead use [RotatedRegion3.GetPartsInRegion](/api/RotatedRegion3#GetPartsInRegion) instead.\nIt&#x27;s slower but it&#x27;s using a newer API.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;IgnoreDescendantsInstance&quot;,
+                    &quot;desc&quot;: &quot;The instance to ignore descendants of.&quot;,
+                    &quot;lua_type&quot;: &quot;Instance?&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;MaxParts&quot;,
+                    &quot;desc&quot;: &quot;The maximum number of parts to return. Defaults to 20.&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{BasePart}&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 378,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;FindPartsInRegion3WithIgnoreList&quot;,
+            &quot;desc&quot;: &quot;Returns array of parts in the RotatedRegion3 object. Will return\na maximum number of parts in the array. Parts that either are descendants\nof the IgnoreList or are actually in the IgnoreList will be ignored.\n\n:::info\nYou should instead use [RotatedRegion3.GetPartsInRegionWithIgnoreList](/api/RotatedRegion3#GetPartsInRegionWithIgnoreList) instead.\nIt&#x27;s slower but it&#x27;s using a newer API.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;IgnoreList&quot;,
+                    &quot;desc&quot;: &quot;The instances to ignore.&quot;,
+                    &quot;lua_type&quot;: &quot;{Instance}?&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;MaxParts&quot;,
+                    &quot;desc&quot;: &quot;The maximum number of parts to return. Defaults to 20.&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{BasePart}&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 412,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;FindPartsInRegion3WithWhiteList&quot;,
+            &quot;desc&quot;: &quot;Returns array of parts in the RotatedRegion3 object. Will return\na maximum number of parts in the array. Parts that are not either descendants\nof the Whitelist or are actually in the Whitelist will be ignored.\n\n:::info\nYou should instead use [RotatedRegion3.GetPartsInRegionWithWhitelist](/api/RotatedRegion3#GetPartsInRegionWithWhitelist) instead.\nIt&#x27;s slower but it&#x27;s using a newer API.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;Whitelist&quot;,
+                    &quot;desc&quot;: &quot;The instances to allow.&quot;,
+                    &quot;lua_type&quot;: &quot;{Instance}?&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;MaxParts&quot;,
+                    &quot;desc&quot;: &quot;The maximum number of parts to return. Defaults to 20.&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{BasePart}&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 447,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;GetPartsInRegion&quot;,
+            &quot;desc&quot;: &quot;Returns array of parts in the RotatedRegion3 object. Will return\na maximum number of parts in the array. Parts that either are are\ndescendants of or are the `IgnoreDescendantsInstance` will be ignored.\n\nUses [Workspace.GetPartBoundsInBox] instead of [Workspace.FindPartsInRegion3].&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;IgnoreDescendantsInstance&quot;,
+                    &quot;desc&quot;: &quot;The instance to ignore descendants of.&quot;,
+                    &quot;lua_type&quot;: &quot;Instance?&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;MaxParts&quot;,
+                    &quot;desc&quot;: &quot;The maximum number of parts to return. Defaults to 20.&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{BasePart}&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 479,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;GetPartsInRegionWithIgnoreList&quot;,
+            &quot;desc&quot;: &quot;Returns array of parts in the RotatedRegion3 object. Will return\na maximum number of parts in the array. Parts that either are descendants\nof the IgnoreList or are actually in the IgnoreList will be ignored.\n\nUses [Workspace.GetPartBoundsInBox] instead of [Workspace.FindPartsInRegion3].&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;IgnoreList&quot;,
+                    &quot;desc&quot;: &quot;The instances to ignore.&quot;,
+                    &quot;lua_type&quot;: &quot;{Instance}?&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;MaxParts&quot;,
+                    &quot;desc&quot;: &quot;The maximum number of parts to return. Defaults to 20.&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{BasePart}&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 521,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;GetPartsInRegionWithWhiteList&quot;,
+            &quot;desc&quot;: &quot;Returns array of parts in the RotatedRegion3 object. Will return\na maximum number of parts in the array. Parts that are not either descendants\nof the Whitelist or are actually in the Whitelist will be ignored.\n\nUses [Workspace.GetPartBoundsInBox] instead of [Workspace.FindPartsInRegion3].&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;Whitelist&quot;,
+                    &quot;desc&quot;: &quot;The instances to allow.&quot;,
+                    &quot;lua_type&quot;: &quot;{Instance}?&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;MaxParts&quot;,
+                    &quot;desc&quot;: &quot;The maximum number of parts to return. Defaults to 20.&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{BasePart}&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 558,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Cast&quot;,
+            &quot;desc&quot;: &quot;Same as the [RotatedRegion3.FindPartsInRegion3WithIgnoreList](/api/RotatedRegion3#FindPartsInRegion3WithIgnoreList)\nmethod, but will check if the ignore argument is an array or single instance.\n\n:::info\nYou should instead use [RotatedRegion3.Cast](/api/RotatedRegion3#Cast) instead.\nIt&#x27;s slower but it&#x27;s using a newer API.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;IgnoreList&quot;,
+                    &quot;desc&quot;: &quot;The instance(s) to ignore.&quot;,
+                    &quot;lua_type&quot;: &quot;Instance | {Instance}&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;MaxParts&quot;,
+                    &quot;desc&quot;: &quot;The maximum number of parts to return. Defaults to 20.&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{BasePart}&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 597,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;CastInBox&quot;,
+            &quot;desc&quot;: &quot;Same as the [RotatedRegion3.GetPartsInRegionWithIgnoreList](/api/RotatedRegion3#GetPartsInRegionWithIgnoreList)\nmethod, but will check if the ignore argument is an array or single instance.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;IgnoreList&quot;,
+                    &quot;desc&quot;: &quot;The instance(s) to ignore.&quot;,
+                    &quot;lua_type&quot;: &quot;Instance | {Instance}&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;MaxParts&quot;,
+                    &quot;desc&quot;: &quot;The maximum number of parts to return. Defaults to 20.&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{BasePart}&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 610,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [
+        {
+            &quot;name&quot;: &quot;CFrame&quot;,
+            &quot;desc&quot;: &quot;A CFrame that represents the center of the region.&quot;,
+            &quot;lua_type&quot;: &quot;CFrame&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 104,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Size&quot;,
+            &quot;desc&quot;: &quot;A Vector3 that represents the size of the region.&quot;,
+            &quot;lua_type&quot;: &quot;Vector3&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 110,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Shape&quot;,
+            &quot;desc&quot;: &quot;A string that represents the shape type of the RotatedRegion3 object.&quot;,
+            &quot;lua_type&quot;: &quot;ShapeType&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 116,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Set&quot;,
+            &quot;desc&quot;: &quot;An array of Vector3s that are passed to the support function.&quot;,
+            &quot;lua_type&quot;: &quot;{Vector3}&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 122,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Support&quot;,
+            &quot;desc&quot;: &quot;A function that is used for support in the GJK algorithm.&quot;,
+            &quot;lua_type&quot;: &quot;SupportFunction&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 128,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Centroid&quot;,
+            &quot;desc&quot;: &quot;A Vector3 that represents the center of the set, again used for the GJK algorithm.&quot;,
+            &quot;lua_type&quot;: &quot;Vector3&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 134,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;AlignedRegion3&quot;,
+            &quot;desc&quot;: &quot;A standard Region3 that represents the world bounding box of the RotatedRegion3 object.&quot;,
+            &quot;lua_type&quot;: &quot;Region3&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 140,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        }
+    ],
+    &quot;types&quot;: [
+        {
+            &quot;name&quot;: &quot;ShapeType&quot;,
+            &quot;desc&quot;: &quot;The RotatedRegion3&#x27;s shape.&quot;,
+            &quot;lua_type&quot;: &quot;\&quot;Ball\&quot; | \&quot;Block\&quot; | \&quot;CornerWedge\&quot; | \&quot;Cylinder\&quot; | \&quot;Wedge\&quot;&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 92,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;SupportFunction&quot;,
+            &quot;desc&quot;: &quot;A support function.&quot;,
+            &quot;lua_type&quot;: &quot;(Set: {Vector3}, Direction: Vector3) -&gt; Vector3&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 98,
+                &quot;path&quot;: &quot;src/init.lua&quot;
+            }
+        }
+    ],
+    &quot;name&quot;: &quot;RotatedRegion3&quot;,
+    &quot;desc&quot;: &quot;&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 83,
+        &quot;path&quot;: &quot;src/init.lua&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#ShapeType" class="table-of-contents__link toc-highlight">ShapeType</a></li><li><a href="#SupportFunction" class="table-of-contents__link toc-highlight">SupportFunction</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#AlignedRegion3" class="table-of-contents__link toc-highlight">AlignedRegion3</a></li><li><a href="#Centroid" class="table-of-contents__link toc-highlight">Centroid</a></li><li><a href="#CFrame" class="table-of-contents__link toc-highlight">CFrame</a></li><li><a href="#Set" class="table-of-contents__link toc-highlight">Set</a></li><li><a href="#Shape" class="table-of-contents__link toc-highlight">Shape</a></li><li><a href="#Size" class="table-of-contents__link toc-highlight">Size</a></li><li><a href="#Support" class="table-of-contents__link toc-highlight">Support</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Cast" class="table-of-contents__link toc-highlight">:Cast</a></li><li><a href="#CastInBox" class="table-of-contents__link toc-highlight">:CastInBox</a></li><li><a href="#CastPart" class="table-of-contents__link toc-highlight">:CastPart</a></li><li><a href="#CastPoint" class="table-of-contents__link toc-highlight">:CastPoint</a></li><li><a href="#FindPartsInRegion3" class="table-of-contents__link toc-highlight">:FindPartsInRegion3</a></li><li><a href="#FindPartsInRegion3WithIgnoreList" class="table-of-contents__link toc-highlight">:FindPartsInRegion3WithIgnoreList</a></li><li><a href="#FindPartsInRegion3WithWhiteList" class="table-of-contents__link toc-highlight">:FindPartsInRegion3WithWhiteList</a></li><li><a href="#GetPartsInRegion" class="table-of-contents__link toc-highlight">:GetPartsInRegion</a></li><li><a href="#GetPartsInRegionWithIgnoreList" class="table-of-contents__link toc-highlight">:GetPartsInRegionWithIgnoreList</a></li><li><a href="#GetPartsInRegionWithWhiteList" class="table-of-contents__link toc-highlight">:GetPartsInRegionWithWhiteList</a></li><li><a href="#Ball" class="table-of-contents__link toc-highlight">.Ball</a></li><li><a href="#Block" class="table-of-contents__link toc-highlight">.Block</a></li><li><a href="#CornerWedge" class="table-of-contents__link toc-highlight">.CornerWedge</a></li><li><a href="#Cylinder" class="table-of-contents__link toc-highlight">.Cylinder</a></li><li><a href="#FromPart" class="table-of-contents__link toc-highlight">.FromPart</a></li><li><a href="#new" class="table-of-contents__link toc-highlight">.new</a></li><li><a href="#Wedge" class="table-of-contents__link toc-highlight">.Wedge</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2022 howmanysmall. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/fast-rotated-region3/assets/js/runtime~main.acafa907.js"></script>
+<script src="/fast-rotated-region3/assets/js/main.77d0272c.js"></script>
+</body>
+</html>

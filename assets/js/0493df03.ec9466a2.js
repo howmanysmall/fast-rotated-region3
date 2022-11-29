@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[178],{63891:e=>{e.exports=JSON.parse('{"sourceUrl":"https://github.com/howmanysmall/fast-rotated-region3/blob/main","baseUrl":"/fast-rotated-region3/","classOrder":["RotatedRegion3"],"apiCategories":[]}')}}]);
