@@ -8,7 +8,8 @@ realm = "shared"
 exclude = [
 	"docs", ".moonwave", ".vscode", "changelog.md", "README.md", ".gitignore",
 	"aftman.toml", "moonwave.toml", "selene.toml", "stylua.toml", "sourcemap.json",
-	"tsconfig.json", "package.json", "package-lock.json", ".eslintrc", ".prettierrc"
+	"tsconfig.json", "package.json", "package-lock.json", ".eslintrc", ".prettierrc",
+	"node_modules",
 ]
 
 [dependencies]

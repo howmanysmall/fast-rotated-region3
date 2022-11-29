@@ -23,3 +23,11 @@ includeReadme = false
 [[home.features]]
 title = "Improved Performance"
 description = "Performance has been improved around 25% over the original source."
+
+[[home.features]]
+title = "Additional APIs"
+description = "Don't want to use deprecated Region3 methods? We've got you covered."
+
+[[home.features]]
+title = "Roblox-TS support"
+description = "Want a fast region checker for Roblox-TS? It's here!"
